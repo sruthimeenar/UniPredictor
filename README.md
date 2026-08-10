@@ -1,4 +1,4 @@
-# JoSAA Compass
+# UniPredictor
 
 Run a local web server in this folder, then open `http://localhost:8000` in your browser:
 
