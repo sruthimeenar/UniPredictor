@@ -1,11 +1,15 @@
 # UniPredictor
 
+Repo: https://github.com/sruthimeenar/UniPredictor
+
 Run a local web server in this folder, then open `http://localhost:8000` in your browser:
 
 ```powershell
 cd "C:\Users\purpl\Documents\Codex\2026-08-05\b\outputs"
 python -m http.server 8000
 ```
+
+Enter a JEE rank in the Rank explorer panel to list every 2024 Round 5 seat that closed at or beyond it, filterable by institute type, category, gender quota and home/other state quota.
 
 The app reads `data/josaa_2024_round5.csv` and `data/college_company_mou.csv` at runtime. It uses supplied Round 5, the latest cut-off file in the archive; no Round 6 file was supplied. Career entries displayed when no matching MoU exists are deterministic, labelled synthetic examples.
 
