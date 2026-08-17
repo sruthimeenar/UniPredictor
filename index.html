@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UniPredictor — 2024 Admission & Career Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient a"></div><div class="ambient b"></div>
+    <main>
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">U</span><span>Uni<b>Predictor</b></span></div>
+        <div class="data-chip"><span class="pulse"></span> Latest supplied Round 5</div>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">ADMISSION × CAREER INTELLIGENCE</p>
+        <h1>Choose the future.<br/><em>Work backwards.</em></h1>
+        <p class="lede">An integrated target-rank, placement and financial planning workspace for your JoSAA journey.</p>
+      </section>
+
+      <section class="rank-panel panel">
+        <div class="panel-heading"><div><div class="section-kicker">01 — Rank explorer</div><h2>What can your rank get you?</h2></div><span id="rankCount" class="badge">Enter a rank</span></div>
+        <div class="rank-form-grid">
+          <label>Your JEE rank (AIR)<input id="rankValue" type="number" min="1" step="1" placeholder="e.g. 15000" /></label>
+          <label>Institute type<select id="rankInstituteType"><option value="ANY">All types</option><option value="IIT">IIT</option><option value="NIT">NIT</option><option value="IIIT">IIIT</option><option value="GFTI">GFTI</option></select></label>
+          <label>Category<select id="rankCategory"><option value="OPEN">GEN / OPEN</option><option value="OBC-NCL">OBC-NCL</option><option value="EWS">EWS</option><option value="SC">SC</option><option value="ST">ST</option></select></label>
+          <label>Gender quota<select id="rankGender"><option value="Gender-Neutral">Gender-neutral</option><option value="Female-only (including Supernumerary)">Female-only</option></select></label>
+          <label>State quota <div class="toggle-row"><span>Other State</span><input type="checkbox" id="rankHomeState" /><span>Home State</span></div></label>
+        </div>
+        <p id="rankNote" class="data-note">Enter your rank above to see every 2024 Round 5 seat that closed at or beyond it.</p>
+        <div id="rankResults" class="rank-results"></div>
+      </section>
+
+      <section class="selector-panel panel">
+        <div class="section-kicker">02 — Dream destination</div>
+        <div class="form-grid">
+          <label>Institute type<select id="instituteType"><option value="NIT">NIT</option><option value="IIT">IIT</option><option value="IIIT">IIIT</option><option value="GFTI">GFTI</option></select></label>
+          <label>College<select id="college"></select></label>
+          <label>Programme<select id="branch"></select></label>
+          <label>Category<select id="category"><option value="OPEN">GEN / OPEN</option><option value="OBC-NCL">OBC-NCL</option><option value="EWS">EWS</option><option value="SC">SC</option><option value="ST">ST</option></select></label>
+          <label>Gender quota<select id="gender"><option value="Gender-Neutral">Gender-neutral</option><option value="Female-only (including Supernumerary)">Female-only</option></select></label>
+          <label>State quota <div class="toggle-row"><span>Other State</span><input type="checkbox" id="homeState" /><span>Home State</span></div></label>
+        </div>
+        <p id="selectionNote" class="data-note"></p>
+      </section>
+
+      <section class="metrics-grid">
+        <article class="panel rank-card"><div class="section-kicker">03 — Target cutoff</div><h2 id="selectedTitle">Loading choices…</h2><div class="rank-values"><div><small>OPENING RANK</small><strong id="openingRank">—</strong></div><div><small>CLOSING RANK</small><strong id="closingRank">—</strong></div></div><p id="cutoffSource" class="data-note"></p></article>
+        <article class="panel target-card"><div class="section-kicker">Target score</div><div id="examLabel" class="metric-label">JEE Main expected percentile</div><div class="scoreline"><strong id="targetScore">—</strong><span id="scoreSuffix"></span></div><div id="rangeText" class="range-text">—</div><div class="progress-track"><span id="scoreBar"></span></div><p class="data-note">Estimated from historic rank-to-score trends. Use as a planning signal, not a cutoff guarantee.</p></article>
+        <article class="panel difficulty-card"><div class="section-kicker">Difficulty index</div><div class="gauge-wrap"><svg class="gauge" viewBox="0 0 180 100"><path d="M20 88 A70 70 0 0 1 160 88" fill="none" stroke="#26313c" stroke-width="13" stroke-linecap="round"/><path id="gaugePath" d="M20 88 A70 70 0 0 1 160 88" fill="none" stroke="#77e6b6" stroke-width="13" stroke-linecap="round"/></svg><div class="gauge-score"><strong id="difficulty">—</strong><span>/100</span></div></div><div id="difficultyCopy" class="difficulty-copy">Calculating competition level…</div></article>
+      </section>
+
+      <section class="two-col">
+        <article class="panel placements"><div class="panel-heading"><div><div class="section-kicker">04 — MoU career map</div><h2>Recruiter opportunities</h2></div><span id="mouBadge" class="badge">Live dataset</span></div><div class="placement-layout"><div id="companyCards" class="company-cards"></div><div><div id="donut" class="donut"><span id="donutText">—</span></div><div id="legend" class="legend"></div></div></div><p id="mouInsight" class="insight">Select a college to view MoU intelligence.</p></article>
+        <article class="panel skills"><div class="section-kicker">05 — Interview readiness</div><h2>Skill gap diagnostic</h2><div class="skills-layout"><div id="skillSliders"></div><div class="radar-column"><svg id="radar" viewBox="0 0 250 230" aria-label="skill radar"></svg><div class="match"><strong id="matchScore">—</strong><span>skill match</span></div></div></div><div id="priorityTopics" class="priority-topics"></div></article>
+      </section>
+
+      <section class="two-col financial-row">
+        <article class="panel financial"><div class="section-kicker">06 — Degree ROI</div><h2>Make the investment visible</h2><div class="range-controls"><label>4-year tuition <output id="tuitionOut"></output><input id="tuition" type="range" min="2" max="32" step="1" value="12" /></label><label>Education loan <output id="loanOut"></output><input id="loan" type="range" min="0" max="30" step="1" value="8" /></label><label>Interest rate <output id="rateOut"></output><input id="interest" type="range" min="6" max="14" step="0.5" value="9" /></label></div><div class="city-row"><span>Job hub</span><button class="city active" data-city="Bengaluru">Bengaluru</button><button class="city" data-city="Hyderabad">Hyderabad</button><button class="city" data-city="Tier-2">Tier-2</button></div><div class="roi-results"><div><small>EST. MONTHLY EMI</small><strong id="emi">—</strong></div><div><small>POST-TAX TAKE-HOME</small><strong id="takeHome">—</strong></div><div><small>NET PAYBACK</small><strong id="payback">—</strong></div></div></article>
+        <article class="panel upgrade"><div class="section-kicker">07 — Career upgrader</div><h2>Change the odds</h2><div class="range-controls compact"><label>Target CGPA <output id="cgpaOut"></output><input id="cgpa" type="range" min="6" max="10" step="0.1" value="7.5" /></label><label>Internships <output id="internOut"></output><input id="internships" type="range" min="0" max="2" step="1" value="1" /></label><label>Portfolio badges <output id="badgeOut"></output><input id="badges" type="range" min="0" max="5" step="1" value="2" /></label></div><div class="probability"><div><span>Tier-1 Product probability</span><strong id="tierOneProb">—</strong></div><div class="prob-bar"><span id="probBar"></span></div></div><div class="timeline" id="timeline"></div></article>
+      </section>
+      <footer>UniPredictor</footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

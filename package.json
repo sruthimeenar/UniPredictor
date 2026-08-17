@@ -1,0 +1,6 @@
+{
+  "name": "unipredictor",
+  "private": true,
+  "repository": "https://github.com/sruthimeenar/UniPredictor",
+  "scripts": { "serve": "npx serve . -l 3000" }
+}
